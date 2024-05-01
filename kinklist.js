@@ -419,8 +419,7 @@ $(function(){
 
             return $(canvas).insertBefore($('#InputList'));
 
-            Send canvas to imgur
-            Daddy's little coder commented this out ;)
+           // Send canvas to imgur
             $.ajax({
                 url: 'https://api.imgur.com/3/image',
                 type: 'POST',
