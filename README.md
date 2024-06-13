@@ -1,3 +1,8 @@
 Hello, 
 
-kinky coder on a mission ;)
+can view at:
+
+
+https://da-kinkycoder.github.io/ 
+
+remove extra links
