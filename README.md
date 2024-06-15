@@ -5,4 +5,7 @@ can view at:
 
 https://da-kinkycoder.github.io/ 
 
-remove extra links
+- remove extra links
+
+- green button
+- column algorithm
