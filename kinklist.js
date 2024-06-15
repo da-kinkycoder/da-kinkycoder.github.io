@@ -417,7 +417,7 @@ $(function(){
                 }
             }
 
-            return $(canvas).insertBefore($('#InputList'));
+           // return $(canvas).insertBefore($('#InputList'));
 
            // Send canvas to imgur
             $.ajax({
