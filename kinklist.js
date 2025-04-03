@@ -359,8 +359,7 @@ $(function(){
                     column.height += simpleTitleHeight;
                     drawCall.type =  'simpleTitle';
                     drawCall.data = catName;
-                }
-                else {
+                } else {
                     column.height += titleSubtitleHeight;
                     drawCall.type =  'titleSubtitle';
                     drawCall.data = {
