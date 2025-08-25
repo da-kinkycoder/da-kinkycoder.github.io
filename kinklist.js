@@ -41,7 +41,7 @@ $(function(){
     var imgurClientId = 'a040684337e5254';
 
     $("#listType").change(function() {
-        fileToRead = $("kinklist_content").val() + '.txt';
+        fileToRead = 'kinklist_content.txt';
         $.get(fileToRead, function(data) {
             $('#Kinks').text(data);
             var selection = inputKinks.saveSelection();
