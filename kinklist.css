@@ -336,7 +336,7 @@ td + td { border-left-style:none }
 
 #EditOverlay #Kinks {
 	width: 60%;
-  height: calc(100vh - 70px) ;
+  height: calc(100dvh - 70px) ;
   min-width: 330px;
   position:fixed;
   top: 15px;
