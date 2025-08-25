@@ -40,15 +40,28 @@ $(function(){
 
     var imgurClientId = 'a040684337e5254';
 
-    $("#listType").change(function() {
-        fileToRead = 'kinklist_content.txt';
-        $.get(fileToRead, function(data) {
-            $('#Kinks').text(data);
-            var selection = inputKinks.saveSelection();
-            var kinksText = $('#Kinks').val();
-            kinks = inputKinks.parseKinksText(kinksText);
-            inputKinks.fillInputList();
-        }, 'text');
+     const fileToRead = 'kinklist_content.txt';
+
+    $.get(fileToRead, function (data) {
+        // Put file contents into the #Kinks textarea
+        $('#Kinks').text(data);
+
+        // Re-parse and fill the list
+        var selection = inputKinks.saveSelection();
+        var kinksText = $('#Kinks').val();
+        kinks = inputKinks.parseKinksText(kinksText);
+        inputKinks.fillInputList();
+    }, 'text');
+
+    // $("#listType").change(function() {
+    //     fileToRead = 'kinklist_content.txt';
+    //     $.get(fileToRead, function(data) {
+    //         $('#Kinks').text(data);
+    //         var selection = inputKinks.saveSelection();
+    //         var kinksText = $('#Kinks').val();
+    //         kinks = inputKinks.parseKinksText(kinksText);
+    //         inputKinks.fillInputList();
+    //     }, 'text');
 
     });
 
