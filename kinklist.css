@@ -335,14 +335,21 @@ td + td { border-left-style:none }
 }
 
 #EditOverlay #Kinks {
-	width: 60%;
-  height: calc(100dvh - 70px) ;
+  width: 60%;
+  min-height: calc(100vh - 70px);   /* fallback for older browsers */
+  min-height: calc(100dvh - 70px);  /* modern, overrides the line above */
   min-width: 330px;
   position:fixed;
   top: 15px;
   left: 20%;
-	border-radius:5px;
-	font-family:monospace,'Courier new',Courier
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius:5px;
+  font-family:monospace,'Courier new',Courier;
+  /* iOS-specific fallback (overrides both lines above on iOS Safari) */
+  @supports (-webkit-touch-callout: none) {
+    min-height: calc(-webkit-fill-available - 70px);
+  }
 }
 
 #EditOverlay #KinksOK {
