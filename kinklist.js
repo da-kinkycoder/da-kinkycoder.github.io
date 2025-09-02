@@ -34,7 +34,24 @@ var inputKinks = {}
 var colors = {}
 var level = {};
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'; // stop Safari from auto-jumping on hash updates
+}
 
+function setHashSilently(nextHash) {
+  // normalize: strip leading '#'
+  nextHash = String(nextHash || '').replace(/^#/, '');
+
+  const y = window.scrollY;
+  if (history.replaceState) {
+    history.replaceState(null, '', '#' + nextHash);
+  } else {
+    // Fallback: set then restore scroll
+    const x = window.scrollX;
+    window.location.hash = nextHash;
+    window.scrollTo(x, y);
+  }
+}
 
 $(function(){
 
@@ -161,8 +178,11 @@ $(function(){
             inputKinks.placeCategories($categories);
 
             // Make things update hash
-            $('#InputList').find('button.choice').on('click', function(){
-                location.hash = inputKinks.updateHash();
+            // $('#InputList').find('button.choice').on('click', function(){
+            //     location.hash = inputKinks.updateHash();
+            // });
+            $('#InputList').on('click', 'button.choice', function () {
+                setHashSilently(inputKinks.updateHash());
             });
         },
         init: function(){
@@ -578,7 +598,8 @@ $(function(){
                     var selector = selection[i];
                     $(selector).addClass('selected');
                 }
-                location.hash = inputKinks.updateHash();
+               // location.hash = inputKinks.updateHash();
+               setHashSilently(inputKinks.updateHash());
             }, 300);
         },
         parseKinksText: function(kinksText){
